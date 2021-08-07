@@ -2,8 +2,9 @@
 	"name": "writeTimestamp",
 	"displayName": "Write Timestamp",
 	"description": "Inserts configurable timestamp into your code with keyboard shortcut.",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "MIT",
+	"publisher": "gieson",
 	"author": {
 		"name": "mike gieson",
 		"email": "mike@plaino.com",
@@ -34,8 +35,8 @@
 		"inject timestamp",
 		"inject time stamp"
 	],
-	"icon": "./icon-512.png",
-	"main": "./extension.js",
+	"icon": "icon-512.png",
+	"main": "extension.js",
 	"activationEvents": [
 		"*"
 	],

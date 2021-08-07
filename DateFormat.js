@@ -268,49 +268,49 @@ ymmddHHMMSS.L			//  20210807060119.538
 		console.log(format(myDate, prop, true));
 	}
 	
-	console.log("\n --- all flags ---" );
-	console.log(format(myDate, flagList.join(" \t")));
+	// console.log("\n --- all flags ---" );
+	// console.log(format(myDate, flagList.join(" \t")));
 	
-	console.log("\n --- singleList flags ---" );
-	console.log(singleList.join(""));
+	// console.log("\n --- singleList flags ---" );
+	// console.log(singleList.join(""));
 	
-	console.log("\n --- doubleList flags ---" );
-	console.log(doubleList.join(""));
+	// console.log("\n --- doubleList flags ---" );
+	// console.log(doubleList.join(""));
 	
-	console.log("\n --- tripleList flags ---" );
-	console.log(tripleList.join("{3}|") + "{3}|");
+	// console.log("\n --- tripleList flags ---" );
+	// console.log(tripleList.join("{3}|") + "{3}|");
 	
-	console.log("\n --- quadList flags ---" );
-	console.log(quadList.join("{4}|") + "{4}|");
+	// console.log("\n --- quadList flags ---" );
+	// console.log(quadList.join("{4}|") + "{4}|");
 
-	// No args assumes "now" 
-	console.log("\n --- assume now ---" );
-	console.log(format())
+	// // No args assumes "now" 
+	// console.log("\n --- assume now ---" );
+	// console.log(format())
 
-	// Format
-	console.log(format("y-m-d")) // 2025-4-1
+	// // Format
+	// console.log(format("y-m-d")) // 2025-4-1
 
-	// common formats
+	// // common formats
 
-	console.log("\n--- common formats ---");
-	console.log(format("y-mm-dd @ HH:MM:SS", myDate)); 	// 	2021-08-07 @ 04:29:09
-	console.log(format("y-mm-dd", myDate)); 			// 	2021-08-07
-	console.log(format("y-m-d", myDate)); 				// 	2021-8-7
-	console.log(format("m/d/y @ HH:MM:SS", myDate));	// 	8/7/2021 @ 04:29:09
-	console.log(format("m/d/y", myDate)); 				// 	8/7/2021
-	console.log(format("h:MM:SS AA", myDate));			// 	4:29:09 AM
-	console.log(format("HH:MM:SS", myDate));			// 	04:29:09
-	console.log(format("H:MM:SS", myDate));				// 	4:29:09
-	console.log(format("W, J d, y @ h:MM:SS AA", myDate));	// 	Thursday, April 1, 2025 @ 3:16:42 AM
-	console.log(format("w, j d, y @ h:MM:SS AA", myDate));	// 	Thu, Apr 1, 2025 @ 3:16:42 AM
-	console.log(format("w, j. d, y @ h:MM:SS AA", myDate));	// 	Thu, Apr. 1, 2025 @ 3:16:42 AM
-	console.log(format("J ddd, y @ h:MM:SS AA", myDate));			// 	August 7th, 2021 @ 4:29:09 AM
-	console.log(format("J d, y @ h:MM:SS AA", myDate));			// 	August 7, 2021 @ 4:29:09 AM
-	console.log(format("J d, y", myDate));						// 	August 7, 2021
-	console.log(format("y-mm-ddTHH:MM:SSZZ", myDate)); 	// 	2021-08-07T04:29:09-0400
-	console.log(format("ymmddHHMMSSL", myDate)); 		// 	20210807042909595
-	console.log(format("ymmddHHMMSS.L", myDate)); 		// 	20210807042909.595
-	console.log(format("'hello' y-m-d", myDate)); 		// 	hello 2021-8-7
+	// console.log("\n--- common formats ---");
+	// console.log(format("y-mm-dd @ HH:MM:SS", myDate)); 	// 	2021-08-07 @ 04:29:09
+	// console.log(format("y-mm-dd", myDate)); 			// 	2021-08-07
+	// console.log(format("y-m-d", myDate)); 				// 	2021-8-7
+	// console.log(format("m/d/y @ HH:MM:SS", myDate));	// 	8/7/2021 @ 04:29:09
+	// console.log(format("m/d/y", myDate)); 				// 	8/7/2021
+	// console.log(format("h:MM:SS AA", myDate));			// 	4:29:09 AM
+	// console.log(format("HH:MM:SS", myDate));			// 	04:29:09
+	// console.log(format("H:MM:SS", myDate));				// 	4:29:09
+	// console.log(format("W, J d, y @ h:MM:SS AA", myDate));	// 	Thursday, April 1, 2025 @ 3:16:42 AM
+	// console.log(format("w, j d, y @ h:MM:SS AA", myDate));	// 	Thu, Apr 1, 2025 @ 3:16:42 AM
+	// console.log(format("w, j. d, y @ h:MM:SS AA", myDate));	// 	Thu, Apr. 1, 2025 @ 3:16:42 AM
+	// console.log(format("J ddd, y @ h:MM:SS AA", myDate));			// 	August 7th, 2021 @ 4:29:09 AM
+	// console.log(format("J d, y @ h:MM:SS AA", myDate));			// 	August 7, 2021 @ 4:29:09 AM
+	// console.log(format("J d, y", myDate));						// 	August 7, 2021
+	// console.log(format("y-mm-ddTHH:MM:SSZZ", myDate)); 	// 	2021-08-07T04:29:09-0400
+	// console.log(format("ymmddHHMMSSL", myDate)); 		// 	20210807042909595
+	// console.log(format("ymmddHHMMSS.L", myDate)); 		// 	20210807042909.595
+	// console.log(format("'hello' y-m-d", myDate)); 		// 	hello 2021-8-7
 
 
 
