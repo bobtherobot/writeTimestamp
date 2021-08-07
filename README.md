@@ -20,7 +20,7 @@ Settings (search `Write Timestamp` in CODE > Preferences > Settings):
 
 ## Common Formats:
 
-NOTE: These are availble from VSCODE's settings. Search "writeTimestamp" in CODE > Preferneces > Settings.
+NOTE: These are availble from VSCODE's settings. Search "writeTimestamp" in CODE > Preferences > Settings.
 
 	y-mm-dd @ HH:MM:SS      //  2021-08-07 @ 06:01:19
 	y-mm-dd                 //  2021-08-07
