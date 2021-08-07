@@ -229,8 +229,8 @@ ymmddHHMMSS.L			//  20210807060119.538
 			fmt = defaultFormat;
 		}
 
-		console.log("");
-		console.log(fmt + (gmt ? " (gmt)" : "") + "\t" );
+		//console.log("");
+		//console.log(fmt + (gmt ? " (gmt)" : "") + "\t" );
 		return fmt.replace(flagexp, function (str) {
 			// ""+ forces everything to a string.
 			return str in flags ? "" + flags[str](dt) : str.slice(1, str.length - 1);
@@ -238,35 +238,35 @@ ymmddHHMMSS.L			//  20210807060119.538
 	};
 
 	//var mdt = new Date('2021-01-02 20:04:05.678');
-	var myDate = new Date();
+	// var myDate = new Date();
 
-    var flagList = [];
-    var singleList = [];
-    var doubleList = [];
-    var tripleList = [];
-    var quadList = [];
-	for (var prop in flags) {
-	    if(prop.length === 1 && singleList.indexOf(prop) < 0){
-	        singleList.push(prop);
-	    }
+    // var flagList = [];
+    // var singleList = [];
+    // var doubleList = [];
+    // var tripleList = [];
+    // var quadList = [];
+	// for (var prop in flags) {
+	//     if(prop.length === 1 && singleList.indexOf(prop) < 0){
+	//         singleList.push(prop);
+	//     }
 	    
-	    if(prop.length === 2 && doubleList.indexOf(prop) < 0){
-	        doubleList.push(prop.substr(0,1));
-	    }
+	//     if(prop.length === 2 && doubleList.indexOf(prop) < 0){
+	//         doubleList.push(prop.substr(0,1));
+	//     }
 	    
-	    if(prop.length === 3 && tripleList.indexOf(prop) < 0){
-	        tripleList.push(prop.substr(0,1));
-	    }
+	//     if(prop.length === 3 && tripleList.indexOf(prop) < 0){
+	//         tripleList.push(prop.substr(0,1));
+	//     }
 	    
-	    if(prop.length === 4 && quadList.indexOf(prop) < 0){
-	        quadList.push(prop.substr(0,1));
-	    }
+	//     if(prop.length === 4 && quadList.indexOf(prop) < 0){
+	//         quadList.push(prop.substr(0,1));
+	//     }
 	    
-	    flagList.push(prop);
+	//     flagList.push(prop);
 	    
-		console.log(format(myDate, prop));
-		console.log(format(myDate, prop, true));
-	}
+	// 	console.log(format(myDate, prop));
+	// 	console.log(format(myDate, prop, true));
+	// }
 	
 	// console.log("\n --- all flags ---" );
 	// console.log(format(myDate, flagList.join(" \t")));
