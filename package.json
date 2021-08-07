@@ -2,7 +2,7 @@
 	"name": "writeTimestamp",
 	"displayName": "Write Timestamp",
 	"description": "Inserts configurable timestamp into your code with keyboard shortcut.",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"license": "MIT",
 	"publisher": "gieson",
 	"author": {
