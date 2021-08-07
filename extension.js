@@ -7,10 +7,21 @@ const vscode = require('vscode');
 const format = require('./DateFormat.js');
 
 function replaceEditorSelection() {
-	var userConfig = vscode.workspace.getConfiguration("writeTimestampString");
-    console.log("userConfig", userConfig);
-    var gmt = userConfig.gmt;
-    var text = format(userConfig.format || "default", gmt) + (gmt ? " GMT" : "");
+	var userConfig = vscode.workspace.getConfiguration("writeTimestamp");
+
+    var fmt = null;
+    
+    var gmt         = userConfig.aGMT;
+    var customFmt   = userConfig.bCustomFormat;
+    var listSel     = userConfig.aList; // have to put list below, otherwise z-index is whack when opening list (other text bleeds into list)
+
+    if(customFmt){
+        fmt = customFmt;
+    }
+    if( ! fmt && listSel != 'custom'){
+        fmt = listSel;
+    }
+    var text = format(fmt, gmt) + (gmt ? " GMT" : "");
 
     var editor = vscode.window.activeTextEditor;
     var selections = editor.selections;
@@ -23,6 +34,7 @@ function replaceEditorSelection() {
 
 	vscode.window.showInformationMessage('Hello World from Write Timestamp!');
 }
+
 
 // register immediately, so always available
 vscode.commands.registerCommand('writeTimestamp.perform', replaceEditorSelection);

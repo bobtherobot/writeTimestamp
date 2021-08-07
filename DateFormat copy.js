@@ -107,11 +107,6 @@ ymmddHHMMSSL				20210806201842.354
 
 (function (global) {
 	
-	var defaultFormat = "W, J d, Y @ h:mm:ss AA";
-	var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-	var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-	var timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g;
-	var timezoneClip = /[^-+\dA-Z]/g;
 	// ---------------------
 	// flagexp breakdown
 	// ---------------------
@@ -130,8 +125,21 @@ ymmddHHMMSSL				20210806201842.354
 	// 	[DwMjJYHhmslaAzZoyLd]
 	// 		Gets a single character, e.g. d
 	//
+	var defaultFormat = "W, J d, Y @ h:mm:ss AA";
+	var timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g;
+	var timezoneClip = /[^-+\dA-Z]/g;
 	var	flagexp = /"[^"]*"|'[^']*'|d{4}|d{3}|Y{4}|M{4}|M{3}|a{4}|a{3}|A{4}|A{3}|D{3}|([DMYHhmSaAZwyd])\1?|[DwMjJYHhmSlaAzZoyLd]/g;
+	var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+	function pad (val, len) {
+		val = String(val);
+		len = len || 2;
+		while (val.length < len) {
+			val = "0" + val;
+		}
+		return val;
+	};
 	var flags = {
 		d 	: function(date){ return date.getDate() },
 		dd 	: function(date){ return pad(date.getDate()) },
@@ -184,16 +192,6 @@ ymmddHHMMSSL				20210806201842.354
 		
 	}
 	
-
-	function pad (val, len) {
-		val = String(val);
-		len = len || 2;
-		while (val.length < len) {
-			val = "0" + val;
-		}
-		return val;
-	}
-
 	function getWeekNumber(d) {
         let onejan = new Date(d.getFullYear(), 0, 1);
         return Math.ceil((((d.getTime() - onejan.getTime()) / 86400000) + onejan.getDay() + 1) / 7);
@@ -208,6 +206,7 @@ ymmddHHMMSSL				20210806201842.354
         }
     }
 
+	
 	function format (arg1, arg2, arg3) {
 	    
 	    var fmt = null;
@@ -275,6 +274,8 @@ ymmddHHMMSSL				20210806201842.354
 // // Include a date
 // var myDate = new Date(2025, 3, 1); // (months are zero-based) jan = 0
 // console.log( DateFormat("Y-m-d", myDate) ) // 2025-4-1
+
+
 
 
 	if (typeof define === 'function' && define.amd) {

@@ -52,15 +52,58 @@
 		"configuration": {
 			"title": "Write Timestamp Configuration",
 			"properties": {
-				"writeTimestampString.format": {
-					"type": "string",
-					"default": "YYYY-MM-DD hh:mm:ss",
-					"description": "Date time format to be used. See extension for format options. e.g. Y-MM-DD"
-				},
-				"writeTimestampString.gmt": {
+
+				"writeTimestamp.aGMT": {
 					"type": "boolean",
 					"default": false,
-					"description": "Use GMT (UTC) universal time."
+					"description": "Use GMT (UTC) universal time. Will apply time-zone-offset to your local time to display all timestamps as GTM (UTC)"
+				},
+				"writeTimestamp.bCustomFormat": {
+					"type": "string",
+					"default": "",
+					"markdownDescription": "Enter your own format here. Refer to the main __Write Timestamp__ extension description for flag definitions. NOTE: Clear this field to use one of the pre-defined optoins below."
+				},
+				"writeTimestamp.cList": {
+					"type": "string",
+					"default": "y-mm-dd @ H:MM:SS",
+					"enum" : [
+						"custom",
+						"y-mm-dd @ H:MM:SS",
+						"y-m-d",
+						"y-mm-dd",
+						"m/d/y @ HH:MM:SS",
+						"m/d/y",
+						"H:MM:SS",
+						"HH:MM:SS",
+						"h:MM:SS AA",
+						"hh:MM:SS AA",
+						"J d, y",
+						"J d, y @ h:MM:SS AA",
+						"dddd, J d, y @ h:MM:SS AA",
+						"y-mm-ddTHH:MM:SSZZ",
+						"ymmddHHMMSSl",
+						"ymmddHHMMSSL"
+					],
+					"enumDescriptions": [
+						"choose this when manually entering your own format above",
+						"prints as: 2025-08-06 @ 3:16:42",
+						"prints as: 2025-8-6",
+						"prints as: 2025-08-06",
+						"prints as: 8/6/2025 @ 20:18:42",
+						"prints as: 8/6/2025",
+						"prints as: 3:16:42 (military time)",
+						"prints as: 03:16:42",
+						"prints as: 3:16:42 AM (civilian time)",
+						"prints as: 03:16:42 AM",
+						"prints as: August 6, 2025",
+						"prints as: August 6, 2025 @ 8:18:42 PM",
+						"prints as: Friday, August 6, 2025 @ 8:18:42 PM",
+						"prints as: 2025-08-06T20:18:42-0400",
+						"prints as: 20250806201842354",
+						"prints as: 20250806201842.354"
+					  ],
+					"editPresentation" : "multi-line",
+					"markdownDescription": "Pre-defined formats. IMPORTANT NOTE: __B Custom Format__ overrides this selection. To use one of these pre-defined formats, remove anything manually entered into __B Custom Format__."
 				}
 			}
 		}

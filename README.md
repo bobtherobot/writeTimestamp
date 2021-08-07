@@ -48,58 +48,36 @@ Quotes:
 - Prevents words containing known entities from being parsed.
 - Any character outside the known entities is printed literally, e.g. colons are printed normally: hh:MM:ss
 
-#### Additional Examples:
+#### Common Formats:
 
-    writeTimestamp.format : "my timestamp" y-m-d   prints: my timestamp 2025-04-01
-    writeTimestamp.format : // y-m-d               prints: // 2025-04-01)
-    writeTimestamp.format : J D, Y @ h:mm:ss AA    prints: Thursday, April 1, 2025 @ 3:16:42 AM
-	writeTimestamp.format : M/D/YY                 prints: 4/1/25
-	writeTimestamp.format : HH:mm:ss               prints: 03:16:42
-	writeTimestamp.format : M/D/YY @ HH:mm:ss      prints: 4/1/25 @ 03:16:42
-	writeTimestamp.format : J D, Y                 prints: April 1, 2025
-	writeTimestamp.format : hh:mm:ss AA            prints: 03:16:42 AM
-	writeTimestamp.format : J D, Y @ h:mm:ss AA    prints: pril 1, 2025 @ 3:16:42 AM
-    writeTimestamp.format : Y-MM-DD                prints: 2025-04-01
-	writeTimestamp.format : H:mm:ss                prints: 3:16:42
-	writeTimestamp.format : Y-MM-DDTHH:mm:ssZZ     prints: 2025-04-01T03:16:42-0500
-    writeTimestamp.format : YYYYMMDDHHmmssl        prints: 20250401031642001
-
-### Common "words"
-
-Rather that manually specifying individual parts, you can set the "format" option to one of the following words for common timestamp formats
-
-    default   prints: January 2, 2021 @ 8:04:05 PM
-    date      prints: 1/2/21
-    time      prints: 20:04:05
-    short     prints: 1/2/21 @ 20:04:05
-    longDate  prints: January 2, 2021
-    longTime  prints: 08:04:05 PM
-    long      prints: January 2, 2021 @ 8:04:05 PM
-    isoDate   prints: 2021-01-02
-    isoTime   prints: 20:04:05
-    iso       prints: 2021-01-02T20:04:05-0500
-    stamp     prints: 20210102200405678
-
-Example:
-
-    writeTimestamp.format : "short"
+dddd, J d, y @ h:MM:SS AA	Friday, August 6, 2021 @ 8:18:42 PM
+J d, y						August 6, 2021
+m/d/y						8/6/2021
+y-m-d						2021-8-6
+y-mm-dd						2021-08-06
+H:MM:SS						5:16:42
+HH:MM:SS					05:16:42
+HH:MM:SS					17:16:42 	(military time)
+h:MM:SS AA					5:16:42 PM  (civilian time)
+m/d/y @ HH:MM:SS			8/6/2021 @ 20:18:42
+J d, y @ h:MM:SS AA			August 6, 2021 @ 8:18:42 PM
+y-mm-ddTHH:MM:SSZZ			2021-08-06T20:18:42-0400
+ymmddHHMMSSl				20210806201842354
+ymmddHHMMSSL				20210806201842.354
+'hello' y-m-d				hello 2021-8-6
 
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- Customizable Keyboard shortcut
+- Customizable time format
+- Include non-time strings in format e.g. "hello" y-m-d
 
 ## Extension Settings
 
 This extension contributes the following settings:
 
-* `writeTimestampString.format`: Enter flags or common word. When not set, will use default common word "short".
+* `writeTimestampString.format`: Enter flags or common word. When not set (empty), will use the default format dddd, J d, y @ h:MM:SS AA.
 * `writeTimestampString.gmt`: check to print GMT (UTC) time (not your local time, will be offset to match GMT)
 
 ## Defaults
@@ -109,7 +87,7 @@ Keyboard shortcut (search `writeTimestamp` in CODE > Preferences > Keyboard Shor
 - MAC: `cmd-shift-t`
 
 Settings (search `Write Timestamp` in CODE > Preferences > Settings):
-- Format : `short`
+- Format : `y-m-d HH:MM:SS`
 - GMT : `false`
 
 
