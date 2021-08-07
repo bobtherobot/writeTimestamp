@@ -1,5 +1,5 @@
 {
-  "name": "writeTimestamp",
+	"name": "writeTimestamp",
 	"displayName": "Write Timestamp",
 	"description": "Inserts configurable timestamp into your code with keyboard shortcut.",
 	"version": "0.0.1",
@@ -12,8 +12,13 @@
 	"engines": {
 		"vscode": "^1.59.0"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bobtherobot/writeTimestamp"
+	},
 	"categories": [
-		"Other"
+		"Other",
+		"Snippets"
 	],
 	"keywords": [
 		"VSCode",
@@ -29,18 +34,18 @@
 		"inject timestamp",
 		"inject time stamp"
 	],
-	"icon" : "./icon-512.png",
+	"icon": "./icon-512.png",
 	"main": "./extension.js",
-
 	"activationEvents": [
-        "*"
+		"*"
 	],
 	"contributes": {
-		"commands": [{
-            "command": "writeTimestamp.perform",
-            "title": "Write Timestamp"
-
-		}],
+		"commands": [
+			{
+				"command": "writeTimestamp.perform",
+				"title": "Write Timestamp"
+			}
+		],
 		"keybindings": [
 			{
 				"command": "writeTimestamp.perform",
@@ -50,59 +55,64 @@
 			}
 		],
 		"configuration": {
-			"title": "Write Timestamp Configuration",
+			"title": "Write Timestamp",
 			"properties": {
-
 				"writeTimestamp.aGMT": {
 					"type": "boolean",
 					"default": false,
-					"description": "Use GMT (UTC) universal time. Will apply time-zone-offset to your local time to display all timestamps as GTM (UTC)"
+					"markdownDescription": "Use GMT (UTC) universal time. Will apply time-zone-offset to your local time to display all timestamps as GTM (UTC)"
 				},
 				"writeTimestamp.bCustomFormat": {
 					"type": "string",
 					"default": "",
-					"markdownDescription": "Enter your own format here. Refer to the main __Write Timestamp__ extension description for flag definitions. NOTE: Clear this field to use one of the pre-defined optoins below."
+					"markdownDescription": "Enter your own format here. Refer to the main __Write Timestamp__ extension description for flag definitions. NOTE: Clear this field to use one of the pre-defined options below."
 				},
 				"writeTimestamp.cList": {
 					"type": "string",
-					"default": "y-mm-dd @ H:MM:SS",
-					"enum" : [
+					"default": "custom",
+					"enum": [
 						"custom",
-						"y-mm-dd @ H:MM:SS",
-						"y-m-d",
+						"y-mm-dd @ HH:MM:SS",
 						"y-mm-dd",
+						"y-m-d",
 						"m/d/y @ HH:MM:SS",
 						"m/d/y",
-						"H:MM:SS",
-						"HH:MM:SS",
 						"h:MM:SS AA",
-						"hh:MM:SS AA",
-						"J d, y",
+						"HH:MM:SS",
+						"H:MM:SS",
+						"W, J d, y @ h:MM:SS AA",
+						"w, j d, y @ h:MM:SS AA",
+						"w, j. d, y @ h:MM:SS AA",
+						"J ddd, y @ h:MM:SS AA",
 						"J d, y @ h:MM:SS AA",
-						"dddd, J d, y @ h:MM:SS AA",
+						"J d, y",
 						"y-mm-ddTHH:MM:SSZZ",
 						"ymmddHHMMSSl",
-						"ymmddHHMMSSL"
+						"ymmddHHMMSS.l",
+						"'hello' y-m-d"
 					],
 					"enumDescriptions": [
 						"choose this when manually entering your own format above",
-						"prints as: 2025-08-06 @ 3:16:42",
-						"prints as: 2025-8-6",
-						"prints as: 2025-08-06",
-						"prints as: 8/6/2025 @ 20:18:42",
-						"prints as: 8/6/2025",
-						"prints as: 3:16:42 (military time)",
-						"prints as: 03:16:42",
-						"prints as: 3:16:42 AM (civilian time)",
-						"prints as: 03:16:42 AM",
-						"prints as: August 6, 2025",
-						"prints as: August 6, 2025 @ 8:18:42 PM",
-						"prints as: Friday, August 6, 2025 @ 8:18:42 PM",
-						"prints as: 2025-08-06T20:18:42-0400",
-						"prints as: 20250806201842354",
-						"prints as: 20250806201842.354"
-					  ],
-					"editPresentation" : "multi-line",
+						"prints as:  2021-08-07 @ 06:01:19",
+						"prints as:  2021-08-07",
+						"prints as:  2021-8-7",
+						"prints as:  8/7/2021 @ 06:01:19",
+						"prints as:  8/7/2021",
+						"prints as:  6:01:19 AM",
+						"prints as:  06:01:19",
+						"prints as:  6:01:19",
+						"prints as:  Saturday, August 7, 2021 @ 6:01:19 AM",
+						"prints as:  Sat, Aug 7, 2021 @ 6:01:19 AM",
+						"prints as:  Sat, Aug. 7, 2021 @ 6:01:19 AM",
+						"prints as:  August 7th, 2021 @ 6:01:19 AM",
+						"prints as:  August 7, 2021 @ 6:01:19 AM",
+						"prints as:  August 7, 2021",
+						"prints as:  2021-08-07T06:01:19-0400",
+						"prints as:  20210807060119538",
+						"prints as:  20210807060119.538",
+						"prints as:  hello 2021-8-7"
+					],
+					"editPresentation": "multi-line",
 					"markdownDescription": "Pre-defined formats. IMPORTANT NOTE: __B Custom Format__ overrides this selection. To use one of these pre-defined formats, remove anything manually entered into __B Custom Format__."
 				}
 			}
@@ -114,15 +124,14 @@
 		"test": "node ./test/runTest.js"
 	},
 	"devDependencies": {
-        "@types/vscode": "^1.59.0",
-        "@types/glob": "^7.1.3",
-        "@types/mocha": "^8.2.2",
-        "@types/node": "14.x",
-        "eslint": "^7.27.0",
-        "glob": "^7.1.7",
-        "mocha": "^8.4.0",
-        "typescript": "^4.3.2",
-        "vscode-test": "^1.5.2"
-    }
-
+		"@types/vscode": "^1.59.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"eslint": "^7.27.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2"
+	}
 }
