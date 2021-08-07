@@ -5,7 +5,7 @@
 - Include non-time strings in format e.g. "hello" y-m-d
 - Pre-defined "common" formats available in settings.
 
-![feature X](write-timestamp-720.gif)
+![quick overview](https://github.com/bobtherobot/writeTimestamp/raw/main/write-timestamp-720.gif)
 
 ## Defaults
 
@@ -98,15 +98,3 @@ This extension contributes the following settings:
 * `writeTimestamp.aGMT`: Use GMT (UTC) universal time. Will apply time-zone-offset to your local time to display all timestamps as GTM (UTC)
 * `writeTimestamp.bCustomFormat`: Enter your own format here. Refer to the main __Write Timestamp__ extension description for flag definitions. NOTE: Clear this field to use one of the pre-defined options below.
 * `writeTimestamp.cList`: Pre-defined formats. IMPORTANT NOTE: __B Custom Format__ overrides this selection. To use one of these pre-defined formats, remove anything manually entered into __B Custom Format__.
-
-## Known Issues
-
-none yet
-
-## Release Notes
-
-
-### 1.0.0 - 2021-08-07 @ 06:51:40 AM
-
-Initial release 
-
